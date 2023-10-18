@@ -10,7 +10,7 @@ namespace WebApi.Controllers
     public class ProductsController : ApiControllerBase
     {
         [HttpPost]
-        public async Task<ActionResult<int>> Create(AddProductRequest request)
+        public async Task<ActionResult<int>> Create([FromForm] AddProductRequest request)
         {
             return await Mediator.Send(request);
         }

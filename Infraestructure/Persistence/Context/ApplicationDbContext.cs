@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Persistence.Context
 {
-    public class ApplicationDbContext : IdentityDbContext<User>, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<UserEntity>, IApplicationDbContext
     {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }

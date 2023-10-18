@@ -12,9 +12,12 @@ namespace Application.Product.Add
     public class AddProductHandler : IRequestHandler<AddProductRequest, int>
     {
         private readonly IApplicationDbContext _context;
-        public AddProductHandler(IApplicationDbContext context)
+        private readonly IFileService _fileService;
+
+        public AddProductHandler(IApplicationDbContext context, IFileService fileService)
         {
             _context = context;
+            _fileService = fileService;
         }
         public async Task<int> Handle(AddProductRequest request, CancellationToken cancellationToken)
         {
@@ -22,8 +25,16 @@ namespace Application.Product.Add
             var newProduct = new ProductEntity
             {
                 Name = request.Name,
+                Description = request.Description,
+                Price = request.Price,
+                Weight = request.Weight,
+                CategoryId = request.CategoryId,
                 CreatedAt = DateTime.UtcNow,
             };
+
+            string imageUrl = await _fileService.SaveImageAsync(request.Image);
+        
+            newProduct.ImageUrl = imageUrl;
 
             await _context.Products.AddAsync(newProduct);
 

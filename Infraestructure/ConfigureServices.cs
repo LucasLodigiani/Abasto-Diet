@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Infraestructure.Persistence.Context;
+using Infraestructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,12 +24,17 @@ namespace Microsoft.Extensions.DependencyInjection
                     options.UseSqlite(configuration.GetConnectionString("DefaultConnection"),
                         builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+
+            
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<UserEntity, IdentityRole>()
                             .AddEntityFrameworkStores<ApplicationDbContext>()
                             .AddDefaultTokenProviders();
+
+            services.AddScoped<IFileService, FileService>();
+
 
             services.Configure<IdentityOptions>(options =>
             {
