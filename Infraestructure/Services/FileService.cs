@@ -2,6 +2,7 @@
 using Infraestructure.Persistence.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Infraestructure.Services
 {
     public class FileService : IFileService
     {
-        private readonly IWebHostEnvironment _env;
+        private readonly IHostEnvironment _env;
         public FileService(IWebHostEnvironment env)
         {
             _env = env;
@@ -31,8 +32,8 @@ namespace Infraestructure.Services
             // Genera un nombre de archivo único con un DateTime en el nombre para evitar conflictos y que sea unico
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
 
-            // La ruta donde se guardará el archivo es wwwroot/Media
-            var filePath = Path.Combine(_env.WebRootPath, "Media", uniqueFileName);
+            // La ruta donde se guardará el archivo es 
+            var filePath = Path.Combine(_env.ContentRootPath, "Media", uniqueFileName);
 
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {

@@ -23,9 +23,9 @@ namespace Microsoft.Extensions.DependencyInjection
             //services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>();
 
 
-            //services.AddControllersWithViews();
+            services.AddControllersWithViews();
 
-            //services.AddRazorPages();
+            services.AddRazorPages();
 
             //services.AddScoped<FluentValidationSchemaProcessor>(provider =>
             //{
@@ -90,3 +90,4 @@ namespace Microsoft.Extensions.DependencyInjection
         }
     }
 }
+
