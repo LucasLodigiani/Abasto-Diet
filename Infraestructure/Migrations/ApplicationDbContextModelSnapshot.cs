@@ -32,7 +32,7 @@ namespace Infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoryEntity");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductEntity", b =>

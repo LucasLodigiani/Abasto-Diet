@@ -18,6 +18,8 @@ namespace Infraestructure.Persistence.Context
 
         public DbSet<ProductEntity> Products => Set<ProductEntity>();
 
+        public DbSet<CategoryEntity> Categories => Set<CategoryEntity>();
+
         public DbSet<UserEntity> Users => Set<UserEntity>();
 
         protected override void OnModelCreating(ModelBuilder builder)

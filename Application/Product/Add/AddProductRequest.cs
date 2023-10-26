@@ -10,15 +10,15 @@ namespace Application.Product.Add
 {
     public record AddProductRequest : IRequest<int>
     {
-        public string Name { get; set; }
+        public string Name { get; init; }
 
-        public string Description { get; set; }
+        public string Description { get; init; }
 
-        public float Price { get; set; }
+        public float Price { get; init; }
 
-        public string Weight { get; set; }
+        public string Weight { get; init; }
 
-        public int CategoryId { get; set; }
+        public int CategoryId { get; init; }
 
         public IFormFile Image { get; set; }
     }

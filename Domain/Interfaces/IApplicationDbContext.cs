@@ -14,6 +14,8 @@ namespace Domain.Interfaces
 
         DbSet<UserEntity> Users { get; }
         
+        DbSet<CategoryEntity> Categories { get; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
     }

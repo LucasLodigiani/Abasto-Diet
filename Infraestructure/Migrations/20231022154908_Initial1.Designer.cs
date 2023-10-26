@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231018234825_Initial1")]
+    [Migration("20231022154908_Initial1")]
     partial class Initial1
     {
         /// <inheritdoc />
@@ -35,7 +35,7 @@ namespace Infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoryEntity");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductEntity", b =>
