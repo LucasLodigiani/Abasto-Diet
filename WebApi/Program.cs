@@ -16,10 +16,10 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
+        builder.WithOrigins("http://localhost:5173")
                .AllowAnyHeader()
                .AllowAnyMethod()
-               .AllowCredentials(); // Permite el envío de credenciales (cookies)
+               .AllowCredentials(); // Permite el envï¿½o de credenciales (cookies)
     });
 });
 
