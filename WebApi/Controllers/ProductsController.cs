@@ -16,9 +16,11 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ProductEntity>> GetAll()
+        public async Task<IEnumerable<ListProductsResponse>> List()
         {
-            return await Mediator.Send(new GetProductsRequest());
+            return await Mediator.Send(new ListProductsRequest());
         }
+        
+        
     }
 }

@@ -29,7 +29,7 @@ namespace Application.User.Add
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return newUser.Id;
+            return 1;
 
         }
 

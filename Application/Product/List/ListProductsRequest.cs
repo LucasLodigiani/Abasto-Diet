@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Product.List
 {
-    public record GetProductsRequest : IRequest<IEnumerable<ProductEntity>>
+    public record ListProductsRequest : IRequest<IEnumerable<ListProductsResponse>>
     {
 
     }
