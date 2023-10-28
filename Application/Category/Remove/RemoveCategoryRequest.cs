@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Microsoft.Extensions.DependencyInjection.Category.Remove;
+namespace Application.Category.Remove;
 
 public record RemoveCategoryRequest : IRequest<int>
 {

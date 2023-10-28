@@ -1,5 +1,6 @@
 ﻿using Application.User.Add;
 using Application.User.Delete;
+using Application.User.Get;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -11,6 +12,13 @@ namespace WebApi.Controllers
         {
             return Ok(await Mediator.Send(request));
         }
+
+        [HttpGet("id")]
+        public async Task<ActionResult<GetUserResponse>> GetById(string id)
+        {
+            return Ok(await Mediator.Send(new GetUserRequest(id)));
+        }
+        
 
         [HttpDelete("{userId}")]
         public async Task<ActionResult<bool>> Delete(string userId)

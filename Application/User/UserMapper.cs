@@ -1,8 +1,9 @@
 using Application.User.Add;
+using Application.User.Get;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Microsoft.Extensions.DependencyInjection.User;
+namespace Application.User;
 
 public class UserMapper : Profile
 {
@@ -10,5 +11,8 @@ public class UserMapper : Profile
     {
         //Add
         CreateMap<AddUserRequest, UserEntity>();
+        
+        //Get
+        CreateMap<UserEntity, GetUserResponse>();
     }
 }
