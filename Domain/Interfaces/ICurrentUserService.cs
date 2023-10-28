@@ -10,7 +10,10 @@ namespace Domain.Interfaces
     public interface ICurrentUserService
     {
         string? UserId { get; }
-
         IPAddress? UserClientIpAddress { get; }
+        
+        Boolean isAdmin { get; }
+        Boolean isUser { get; }
+        
     }
 }

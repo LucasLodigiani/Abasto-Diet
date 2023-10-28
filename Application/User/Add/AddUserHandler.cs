@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
@@ -29,6 +30,8 @@ namespace Application.User.Add
             var newUser = _mapper.Map<UserEntity>(request);
             
             var result = await _userManager.CreateAsync(newUser, request.Password);
+            
+            await _userManager.AddToRoleAsync(newUser,Roles.User);
 
             return result;
         }

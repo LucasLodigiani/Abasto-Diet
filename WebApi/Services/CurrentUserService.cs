@@ -16,5 +16,9 @@ namespace WebApi.Services
 
         public IPAddress? UserClientIpAddress => _httpContextAccessor.HttpContext.Connection.RemoteIpAddress;
 
+        //Extensiones
+        public bool isAdmin => _httpContextAccessor.HttpContext.User.IsInRole("Admin");
+
+        public bool isUser => _httpContextAccessor.HttpContext.User.IsInRole("User");
     }
 }
