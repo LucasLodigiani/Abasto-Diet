@@ -6,7 +6,7 @@ namespace WebApi.Controllers
     public class UsersController : ApiControllerBase
     {
         [HttpPost]
-        public async Task<ActionResult<int>> Create([FromBody] AddUserRequest request)
+        public async Task<ActionResult<(int, string)>> Create([FromBody] AddUserRequest request)
         {
             return await Mediator.Send(request);
         }
