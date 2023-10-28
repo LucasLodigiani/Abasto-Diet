@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Application.User.Add
 {
-        public record AddUserRequest : IRequest<(int, string)>
+        public record AddUserRequest : IRequest<IdentityResult>
         {
             public string Password { get; set; }
             public string UserName { get; set; }

@@ -7,41 +7,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace Application.User.Add
 {
-    public class AddUserHandler : IRequestHandler<AddUserRequest, (int, string)>
+    public class AddUserHandler : IRequestHandler<AddUserRequest, IdentityResult>
     {
-        private readonly ILogger<AddUserHandler> _logger;
         private readonly UserManager<UserEntity> _userManager;
-
-        public AddUserHandler(UserManager<UserEntity> userManager, ILogger<AddUserHandler> logger)
+        private readonly IMapper _mapper;
+        public AddUserHandler(UserManager<UserEntity> userManager, IMapper mapper)
         {
             _userManager = userManager;
-            _logger = logger;
+            _mapper = mapper;
         }
 
-        public async Task<(int,string)> Handle(AddUserRequest request, CancellationToken cancellationToken)
+        public async Task<IdentityResult> Handle(AddUserRequest request, CancellationToken cancellationToken)
         {
-            var newUser = new UserEntity
-            {
-                UserName = request.UserName,
-                Email = request.Email,
-                PhoneNumber = request.PhoneNumber,
-            };
 
+            var newUser = _mapper.Map<UserEntity>(request);
+            
             var result = await _userManager.CreateAsync(newUser, request.Password);
 
-            if (result.Succeeded)
-            {
-                return (1, "Creado exitosamente"); //resultado exitoso
-            }
-            else
-            {
-                return (0, "Creación fallida");
-
-            }
+            return result;
         }
     }
 }

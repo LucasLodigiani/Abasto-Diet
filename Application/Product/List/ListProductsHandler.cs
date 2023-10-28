@@ -24,7 +24,6 @@ namespace Application.Product.List
 
         public async Task<IEnumerable<ListProductsResponse>> Handle(ListProductsRequest request, CancellationToken cancellationToken)
         {
-            //En el futuro hay que refactorizar habría que refactorizar esto con AutoMapper, por ahora se queda asi.
             var products = await _context.Products
                 .Include(c => c.Category).ToListAsync();
 
