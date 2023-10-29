@@ -34,7 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
                             .AddDefaultTokenProviders();
 
             services.AddScoped<IFileService, FileService>();
-
+            services.AddScoped<IJwtService, JwtService>();
 
             services.Configure<IdentityOptions>(options =>
             {
