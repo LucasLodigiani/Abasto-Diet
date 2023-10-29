@@ -32,8 +32,14 @@ namespace Infraestructure.Services
             // Genera un nombre de archivo único con un DateTime en el nombre para evitar conflictos y que sea unico
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
 
-            // La ruta donde se guardará el archivo es 
-            var filePath = Path.Combine(_env.ContentRootPath, "Media", uniqueFileName);
+            var mediaFolderPath = Path.Combine(_env.ContentRootPath, "Media");
+            var filePath = Path.Combine(mediaFolderPath, uniqueFileName);
+
+            // Verificar si la ruta "Media" existe, y si no, crearla
+            if (!Directory.Exists(mediaFolderPath))
+            {
+                Directory.CreateDirectory(mediaFolderPath);
+            }
 
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
