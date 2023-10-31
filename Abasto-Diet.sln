@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructure", "Infraest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D1F1BB1C-52D4-4CA9-AE8C-99AD4F8FE180}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{250BE4A1-3F53-4064-BDDB-9C6A759726DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructure.UnitTests", "Infraestructure.UnitTests\Infraestructure.UnitTests.csproj", "{E2E436F7-61B7-4387-90A9-393DE53EC41F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Application.UnitTests\Application.UnitTests.csproj", "{D60A2C4E-6EE2-42C1-909F-A068492C22D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +39,14 @@ Global
 		{D1F1BB1C-52D4-4CA9-AE8C-99AD4F8FE180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F1BB1C-52D4-4CA9-AE8C-99AD4F8FE180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F1BB1C-52D4-4CA9-AE8C-99AD4F8FE180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2E436F7-61B7-4387-90A9-393DE53EC41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2E436F7-61B7-4387-90A9-393DE53EC41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2E436F7-61B7-4387-90A9-393DE53EC41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2E436F7-61B7-4387-90A9-393DE53EC41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60A2C4E-6EE2-42C1-909F-A068492C22D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60A2C4E-6EE2-42C1-909F-A068492C22D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60A2C4E-6EE2-42C1-909F-A068492C22D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60A2C4E-6EE2-42C1-909F-A068492C22D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,5 +55,7 @@ Global
 		SolutionGuid = {ACBD7C29-633C-474C-9CEB-128804C127A1}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{E2E436F7-61B7-4387-90A9-393DE53EC41F} = {250BE4A1-3F53-4064-BDDB-9C6A759726DA}
+		{D60A2C4E-6EE2-42C1-909F-A068492C22D7} = {250BE4A1-3F53-4064-BDDB-9C6A759726DA}
 	EndGlobalSection
 EndGlobal
