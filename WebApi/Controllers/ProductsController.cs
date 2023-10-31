@@ -1,6 +1,7 @@
 ﻿using Application.Product.Add;
 using Application.Product.Delete;
 using Application.Product.List;
+using Application.Product.Update;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,15 @@ namespace WebApi.Controllers
         {
             return await Mediator.Send(request);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromForm] UpdateProductRequest request)
+        {
+            await Mediator.Send(request);
+            
+            return NoContent();
+        }
+        
 
         [HttpGet]
         public async Task<IEnumerable<ListProductsResponse>> List()
