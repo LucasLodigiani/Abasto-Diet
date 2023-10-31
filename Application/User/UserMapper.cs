@@ -1,5 +1,7 @@
 using Application.User.Add;
 using Application.User.Get;
+using Application.User.List;
+using Application.User.Update;
 using AutoMapper;
 using Domain.Entities;
 
@@ -14,5 +16,11 @@ public class UserMapper : Profile
         
         //Get
         CreateMap<UserEntity, GetUserResponse>();
+        
+        //Update
+        CreateMap<UpdateUserRequest, UserEntity>().ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));;
+        
+        //List
+        CreateMap<UserEntity, ListUserResponse>();
     }
 }
