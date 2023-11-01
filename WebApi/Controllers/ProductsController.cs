@@ -3,12 +3,14 @@ using Application.Product.Delete;
 using Application.Product.List;
 using Application.Product.Update;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-
+    
+    [Authorize(Roles = "Admin")]
     public class ProductsController : ApiControllerBase
     {
         [HttpPost]
@@ -27,6 +29,7 @@ namespace WebApi.Controllers
         
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<ListProductsResponse>> List()
         {
             return await Mediator.Send(new ListProductsRequest());

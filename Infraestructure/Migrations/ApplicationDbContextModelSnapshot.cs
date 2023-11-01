@@ -135,6 +135,22 @@ namespace Infraestructure.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "9acfffe7-16c7-4297-9700-e2b408f3280a",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "03bd8f78-5b62-4062-b6d4-80dd51845da1",
+                            Email = "admin@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEAgCdkWKXB3qq0ILIc3Ecko1qUUwLqyapAPBEvWyO167miYnZ4Ighz+KA0S6Loxv5w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "df1266d9-3529-4316-bd34-3a0c56f431aa",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

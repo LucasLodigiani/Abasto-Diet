@@ -2,13 +2,16 @@
 using Application.Category.List;
 using Application.Category.Remove;
 using Application.Category.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : ApiControllerBase
     {
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> List()
         {
             return Ok(await Mediator.Send(new ListCategoryRequest()));

@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities;
 
 namespace Infraestructure.Persistence.Context
 {
@@ -17,6 +18,7 @@ namespace Infraestructure.Persistence.Context
             SeedRoles(builder);
         }
 
+        
         private static void SeedRoles(this ModelBuilder builder)
         {
             builder.Entity<IdentityRole>().HasData(

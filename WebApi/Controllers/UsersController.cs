@@ -8,20 +8,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UsersController : ApiControllerBase
     {
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Create([FromBody] AddUserRequest request)
+        {
+            return Ok(await Mediator.Send(request));
+        }
+        
         [HttpGet]
         public async Task<IActionResult> List()
         {
             return Ok(await Mediator.Send(new ListUserRequest()));
         }
         
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] AddUserRequest request)
-        {
-            return Ok(await Mediator.Send(request));
-        }
-
         [HttpGet("id")]
         public async Task<ActionResult<GetUserResponse>> GetById(string id)
         {
